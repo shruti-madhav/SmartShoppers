@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Update</title>
+    <link href="../static/CSS/profle.css" rel="stylesheet" type="text/css">
+    <!--Template based on URL below-->
+    <link rel="canonical" href="https://getbootstrap.com/docs/4.3/examples/starter-template/">
+
+    <!-- Bootstrap core CSS -->
+    <link href='https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css'>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link href='https://cdnjs.cloudflare.com/ajax/libs/MaterialDesign-Webfont/3.6.95/css/materialdesignicons.css'>
+</head>
+{% extends "home.html" %}
+{% block content %}
+<body>
+    {% for i in user %}
+    <form method="post" action="/updatepassword/">
+        {% csrf_token %}
+        <center>
+            <div class="card mb-3" style="max-width: 700px;">
+                <div class="row g-0">
+                    <div class="col-md-4" style="background-color: #cca4e0;">
+                        <br><br><br><br>
+                        <img src="https://img.icons8.com/bubbles/100/000000/user.png" class="img-radius" alt="User-Profile-Image">
+                        <h4 class="card-title">{{i.name}}</h4>
+                    </div>
+                    <div class="col-md-8">
+                        <div class="card-body">
+                            <div class="col-sm-8">
+                                <div class="card-block">
+                                    <h5 class="m-b-20 p-b-5 b-b-default f-w-600">Information</h5>
+                                    <hr>
+                                    <div class="row">
+                                        <div class="col-sm-6">
+                                            <p class="m-b-10 f-w-600">Email</p>
+                                        </div>
+                                        <div class="col-sm-6">
+                                            <input class="input" type="text" value="{{i.email}}" name="email">
+                                            <!--<h6 class="text-muted f-w-400">rntng@gmail.com</h6>-->
+                                        </div>
+                                        <div class="col-sm-6">
+                                            <p class="m-b-10 f-w-600">Username</p>
+                                        </div>
+                                        <div class="col-sm-6">
+                                            <input class="input" type="text" value="{{i.name}}" name="username">
+                                            <!--<h6 class="text-muted f-w-400">username</h6>-->
+                                        </div>
+                                    </div>
+                                    <h6 class="m-b-20 m-t-40 p-b-5 b-b-default f-w-600">Password</h6>
+                                    <hr>
+                                    <div class="row pas">
+                                        <div class="col-sm-6">
+                                            <p class="m-b-10 f-w-600">Old Password</p>
+                                        </div>
+                                        <div class="col-sm-6">
+                                            <input class="input" name="old" type="text" value="{{i.password}}">
+                                            <!--<h6 class="text-muted f-w-400">password</h6>-->
+                                        </div>
+                                        <div class="col-sm-6">
+                                            <p class="m-b-10 f-w-600">New Password</p>
+                                        </div>
+                                        <div class="col-sm-6">
+                                            <input class="input" name="new" type="text">
+                                            <!--<h6 class="text-muted f-w-400">password</h6>-->
+                                        </div>
+                                    </div>
+                                    <br>
+                                    <hr>
+                                    <div class="row">
+                                        <div class="col-sm-6">
+                                            <button class="btn btn-outline-primary update" type="submit">Update</button>
+                                        </div>
+                                        <div class="col-sm-6">
+                                            <button href="/home/" class="btn btn-outline-primary">Cancel</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </center>
+    </form>
+    {% endfor %}
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js'></script>
+    </body>
+    {% endblock %}
+
+</html>
